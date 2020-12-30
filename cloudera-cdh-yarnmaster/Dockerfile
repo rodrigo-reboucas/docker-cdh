@@ -9,7 +9,7 @@
 #######################################################################################################################
 FROM loicmathieu/cloudera-cdh:cdh-6.0.0
 
-MAINTAINER Loic Mathieu <loicmathieu@free.fr>
+LABEL MAINTAINER Loic Mathieu <loicmathieu@free.fr>
 
 #setup supervisor
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf

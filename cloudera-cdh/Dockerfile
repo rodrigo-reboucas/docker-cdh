@@ -11,7 +11,7 @@
 ############################################################################################
 FROM loicmathieu/openjdk
 
-MAINTAINER Loic Mathieu <loicmathieu@free.fr>
+LABEL MAINTAINER Loic Mathieu <loicmathieu@free.fr>
 
 ENV CDH_VER 6.0.0
 

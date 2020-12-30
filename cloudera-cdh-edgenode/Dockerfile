@@ -6,7 +6,7 @@
 #########################################################################################
 FROM loicmathieu/cloudera-cdh:cdh-6.0.0
 
-MAINTAINER Loic Mathieu <loicmathieu@free.fr>
+LABEL MAINTAINER Loic Mathieu <loicmathieu@free.fr>
 
 #install pig, hive, flume and scoop 
 RUN yum -y install pig hive flume-ng sqoop spark-core && rm -rf /var/cache/yum/*

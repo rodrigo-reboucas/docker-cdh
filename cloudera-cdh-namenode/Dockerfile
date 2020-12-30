@@ -10,7 +10,7 @@
 ###########################################################################################
 FROM loicmathieu/cloudera-cdh:cdh-6.0.0
 
-MAINTAINER Loic Mathieu <loicmathieu@free.fr>
+LABEL MAINTAINER Loic Mathieu <loicmathieu@free.fr>
 
 #init namenode directory
 RUN mkdir -p /hdfs/nm
