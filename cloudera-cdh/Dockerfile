@@ -9,7 +9,7 @@
 # - loicmathieu/cloudera-cdh-datanode : will launch and HDFS datanode and a Yarn NodeManager
 # - loicmathieu/cloudera-cdh-edgenode : will launch a client container to HDFS/Yarn cluster
 ############################################################################################
-FROM loicmathieu/openjdk
+FROM academysemantix/java
 
 LABEL MAINTAINER Loic Mathieu <loicmathieu@free.fr>
 
