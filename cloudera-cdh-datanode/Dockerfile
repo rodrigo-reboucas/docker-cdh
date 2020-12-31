@@ -5,9 +5,9 @@
 # (using loicmathieu/cloudera-hdfs-namenode) and make sure the netword stack is OK so that the namenode and datanode
 # can communicate together
 #######################################################################################################################
-FROM academysemantix/cloudera-cdh
+FROM academysemantix/cdh-base
 
-LABEL MAINTAINER Loic Mathieu <loicmathieu@free.fr>
+LABEL MAINTAINER Rodrigo Rebouças <rodrigo.a.reboucas@gmail.com>
 
 #init datanode directory
 RUN mkdir -p /hdfs/data

@@ -11,9 +11,9 @@
 ############################################################################################
 FROM academysemantix/java
 
-LABEL MAINTAINER Loic Mathieu <loicmathieu@free.fr>
+LABEL MAINTAINER Rodrigo Rebouças <rodrigo.a.reboucas@gmail.com>
 
-ENV CDH_VER 6.0.0
+ENV CDH_VER 6.3.2
 
 #copy cloudera CDH repo
 COPY cloudera-cdh.repo /etc/yum.repos.d
