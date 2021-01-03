@@ -7,9 +7,9 @@
 #
 # The container will use supervisor to start both components.
 #######################################################################################################################
-FROM loicmathieu/cloudera-cdh:cdh-6.0.0
+FROM academysemantix/cdh-base
 
-LABEL MAINTAINER Loic Mathieu <loicmathieu@free.fr>
+LABEL MAINTAINER Rodrigo Rebouças <rodrigo.a.reboucas@gmail.com>
 
 #setup supervisor
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf

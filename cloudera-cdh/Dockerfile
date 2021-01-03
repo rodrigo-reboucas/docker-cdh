@@ -1,13 +1,10 @@
 #############################################################################################
-# This dockerfile will make some basic CDH related installation.
-#
-# It's purpose is to be the base to make more specific CDH container, so don't use it 
-# directly but instead use one of the following :
-# - loicmathieu/cloudera-cdh-namenode : will launch an HDFS namenode and a secondarynamenode
-# - loicmathieu/cloudera-cdh-yarnmaster : will launch a Yarn ResourceManager 
+# Base container of Cloudera CDH 6, so don't use it directly.
+# - academysemantix/cdh-namenode : HDFS namenode and a secondarynamenode
+# - academysemantix/cdh-yarnmaster : Yarn ResourceManager 
 #	and a MapReduce HistoryServer
-# - loicmathieu/cloudera-cdh-datanode : will launch and HDFS datanode and a Yarn NodeManager
-# - loicmathieu/cloudera-cdh-edgenode : will launch a client container to HDFS/Yarn cluster
+# - academysemantix/cdh-datanode : HDFS datanode and a Yarn NodeManager
+# - academysemantix/cdh-edgenode : Client container to HDFS/Yarn cluster
 ############################################################################################
 FROM academysemantix/java
 
