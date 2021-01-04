@@ -4,19 +4,12 @@
 # It also contains some pig/hive script and CSV test files to start with
 #
 #########################################################################################
-FROM loicmathieu/cloudera-cdh:cdh-6.0.0
+FROM academysemantix/cdh-base
 
-LABEL MAINTAINER Loic Mathieu <loicmathieu@free.fr>
+LABEL MAINTAINER Rodrigo Rebouças <rodrigo.a.reboucas@gmail.com>
 
 #install pig, hive, flume and scoop 
-RUN yum -y install pig hive flume-ng sqoop spark-core && rm -rf /var/cache/yum/*
-
-#copy test data and script
-COPY cities.* /
-
-#copy flume conf and start scripts
-COPY flume/* /
-RUN chmod +x /start_flume.sh
+RUN yum -y install hive sqoop spark-core && rm -rf /var/cache/yum/*
 
 #there is an issue with hive, we need to recrete the db
 RUN rm -rf /var/lib/hive/metastore/metastore_db
