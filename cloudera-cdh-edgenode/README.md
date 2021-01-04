@@ -58,18 +58,18 @@ docker run -it big_data-edgenode bash
 
 **Access Hadoop Client**
 
-**HDFS & MapReduce:**
+ - HDFS & MapReduce:
 ```
 hdfs dfs -mkdir /teste
 ```
 
-**Hive:**
+ - Hive:
 ```
 beeline -u jdbc:hive2://
 show databases;
 ```
 
-**Spark (local):**
+ - Spark (local):
 ```
 spark-shell
 val t1 = sc.textFile("hdfs:///teste");
@@ -77,7 +77,7 @@ t1.count();
 exit;
 ```
 
-**Spark (yarn):**
+ - Spark (yarn):
 ```
 spark-shell --master yarn
 val t1 = sc.textFile("hdfs:///teste");
@@ -85,5 +85,5 @@ t1.count();
 exit;
 ```
 
-**Sqoop:**  
+ - Sqoop:  
 It's installed, use it with scoop from the shell ...
