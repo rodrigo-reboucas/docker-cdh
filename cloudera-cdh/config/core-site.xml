@@ -22,5 +22,9 @@
      <name>fs.defaultFS</name>
      <value>hdfs://namenode:8020</value>
   </property>
+  <property>
+     <name>fs.trash.interval</name>
+     <value>10</value>
+  </property>
 
 </configuration>

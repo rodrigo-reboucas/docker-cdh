@@ -25,7 +25,7 @@ RUN hdfs namenode -format
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 #expose namenode port
-EXPOSE 8020
+EXPOSE 8020 50070
 
 #define HDFS volume to enable to persist namenode fsimage between restart
 VOLUME /hdfs
