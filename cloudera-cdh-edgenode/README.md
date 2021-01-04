@@ -47,31 +47,29 @@ docker run -d --net hadoop --net-alias yarnmaster -p 8032:8032 -p 8088:8088 acad
 
 4. Then start a datanode
 ```
-docker run -d --net hadoop --net-alias datanode1 -h datanode1 --link namenode --link yarnmaster \
--p 50020:50020 -p 50075:50075 -p 8042:8042 academysemantix/cdh-datanode
+docker run -d --net hadoop --net-alias datanode1 -h datanode1 --link namenode --link yarnmaster -p 50020:50020 -p 50075:50075 -p 8042:8042 academysemantix/cdh-datanode
 ```
 
 5. Finally launch the edge node and connect to it
 ```
-docker run -d --net hadoop --net-alias edgenode --link namenode --link yarnmaster \
-academysemantix/cdh-edgenode
+docker run -d --net hadoop --net-alias edgenode --link namenode --link yarnmaster academysemantix/cdh-edgenode
 docker run -it big_data-edgenode bash
 ```
 
 **Access Hadoop Client**
 
-**HDFS & MapReduce :**
+**HDFS & MapReduce:**
 ```
 hdfs dfs -mkdir /teste
 ```
 
-**Hive :**
+**Hive:**
 ```
 beeline -u jdbc:hive2://
 show databases;
 ```
 
-**Spark (local) :**
+**Spark (local):**
 ```
 spark-shell
 val t1 = sc.textFile("hdfs:///teste");
@@ -79,7 +77,7 @@ t1.count();
 exit;
 ```
 
-**Spark (yarn) :**
+**Spark (yarn):**
 ```
 spark-shell --master yarn
 val t1 = sc.textFile("hdfs:///teste");
@@ -87,5 +85,5 @@ t1.count();
 exit;
 ```
 
-**Sqoop :**  
+**Sqoop:**  
 It's installed, use it with scoop from the shell ...
