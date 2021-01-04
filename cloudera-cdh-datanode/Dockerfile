@@ -16,7 +16,7 @@ RUN mkdir -p /hdfs/data
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 #expose port
-EXPOSE 50020 50075 8042 50010
+EXPOSE 9867 9864 9866 8042
 
 #define HDFS volume to enable to persist datanode data (hdfs files) between restart
 VOLUME /hdfs

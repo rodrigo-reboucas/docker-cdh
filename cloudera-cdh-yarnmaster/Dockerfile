@@ -15,7 +15,7 @@ LABEL MAINTAINER Rodrigo Rebouças <rodrigo.a.reboucas@gmail.com>
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 #expose ressourcemanager port
-EXPOSE 8032 8080
+EXPOSE 8032 8088 19888
 
 #start the supervisor
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
