@@ -41,10 +41,8 @@ docker network create hadoop
 
 3. Then start the HDFS and Yarn master containers
 ```
-docker run -d --net hadoop --net-alias namenode \
--p 8020:8020 academysemantix/cdh-namenode
-docker run -d --net hadoop --net-alias yarnmaster \
--p 8032:8032 -p 8088:8088 academysemantix/cdh-yarnmaster
+docker run -d --net hadoop --net-alias namenode -p 8020:8020 academysemantix/cdh-namenode
+docker run -d --net hadoop --net-alias yarnmaster -p 8032:8032 -p 8088:8088 academysemantix/cdh-yarnmaster
 ```
 
 4. Then start a datanode
