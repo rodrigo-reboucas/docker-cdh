@@ -1,15 +1,21 @@
 # cloudera-cdh
 
-Base image with Cloudera CDH installed on it.
+Base image with Cloudera CDH 7, porpose to make specific CDH containers.
 
-It's purpose is to be the base to make more specific CDH container, so don't use it directly but instead use
-- loicmathieu/cloudera-cdh-namenode : will launch an HDFS namenode and an HDFS secondarynamenode
-- loicmathieu/cloudera-cdh-datanode : will launch and HDFS datanode
+This container setup a Yarn ResourceManager and a HDFS  MaprReduce 2 HistoryServer.
 
-But if you really want to use it, OK, you can :
+Cluster architecture:
+- academysemantix/cdh-namenode: HDFS Namenode and the HDFS Secondary Node
+- academysemantix/cdh-datanode: HDFS Datanode and the Node Manager
+- academysemantix/cdh-yarnmaster: Resource Manager and the History Server
+- academysemantix/cdh-edgenode: Edge Node, with Hadoop client : hdfs, yarn, mapreduce v2, hive, spark, sqoop
+
+**Running the container**
 ```
-docker pull academysemantix/cloudera-cdh
-docker run -ti academysemantix/cloudera-cdh
+docker pull academysemantix/cdh-base
+docker run -ti academysemantix/cdh-base
 ```
 
-This should print out the Hadoop version (hadoop version command will be launched)
+**Running the cluster**
+
+Documentation: https://hub.docker.com/r/academysemantix/cdh-edgenode/

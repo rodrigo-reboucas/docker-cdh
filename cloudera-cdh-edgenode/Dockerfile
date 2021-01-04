@@ -8,14 +8,14 @@ FROM academysemantix/cdh-base
 
 LABEL MAINTAINER Rodrigo Rebouças <rodrigo.a.reboucas@gmail.com>
 
-#install pig, hive, flume and scoop 
+#install hive, spark and scoop 
 RUN yum -y install hive sqoop spark-core && rm -rf /var/cache/yum/*
 
 #there is an issue with hive, we need to recrete the db
 RUN rm -rf /var/lib/hive/metastore/metastore_db
 RUN /usr/lib/hive/bin/schematool -dbType derby -initSchema
 
-#create a staging disk to send/get data to/from the clusrer
+#create a staging disk to send/get data to/from the cluster
 RUN mkdir /staging
 
 VOLUME /staging
