@@ -42,16 +42,15 @@ docker network create hadoop
 3. Then start the HDFS and Yarn master containers
 ```
 docker run -d --net hadoop --net-alias namenode \
--p 8020:8020 loicmathieu/cloudera-cdh-namenode
+-p 8020:8020 academysemantix/cdh-namenode
 docker run -d --net hadoop --net-alias yarnmaster \
--p 8032:8032 -p 8088:8088 loicmathieu/cloudera-cdh-yarnmaster
+-p 8032:8032 -p 8088:8088 academysemantix/cdh-yarnmaster
 ```
 
-4. Then start a datanode, warning : the hostname of the datanode needs to be specified in order yarn RessourceManager to be able to communicate with it (use of the -h docker run option).
+4. Then start a datanode
 ```
-docker run -d --net hadoop --net-alias datanode1 -h datanode1 \
---link namenode --link yarnmaster -p 50020:50020 -p 50075:50075 -p 8042:8042 \
-loicmathieu/cloudera-cdh-datanode
+docker run -d --net hadoop --net-alias datanode1 -h datanode1 --link namenode --link yarnmaster \
+-p 50020:50020 -p 50075:50075 -p 8042:8042 academysemantix/cdh-datanode
 ```
 
 5. Finally launch the edge node and connect to it
@@ -61,43 +60,32 @@ academysemantix/cdh-edgenode
 docker run -it big_data-edgenode bash
 ```
 
-Optionnaly, you can mount the /staging volume to be able to easily send/get data to/from the cluster. It can facilitate putting stuff on HDFS or sending JAR files to Yarn.
-
-**Some example of how to run it :**
-The container include test data and scripts to test the cluster, here is a small snippet of what can be done :
-
+**Access Hadoop Client**
 
 **HDFS & MapReduce :**
 ```
- hadoop fs -mkdir /cities
- hadoop fs -put cities.csv /cities
- hadoop fs -cat /cities/cities.csv
- hadoop jar /usr/lib/hadoop-mapreduce/hadoop-mapreduce-examples.jar \
- wordcount /cities/cities.csv /wordcount
- hadoop fs -ls /wordcount
- ```
+hdfs dfs -mkdir /teste
+```
 
 **Hive :**
 ```
- beeline -u jdbc:hive2:// -f cities.hql
- beeline -u jdbc:hive2://
- select * from cities limit 10;
- select * from cities where department = '82' limit 10;
- ```
+beeline -u jdbc:hive2://
+show databases;
+```
 
 **Spark (local) :**
 ```
 spark-shell
-val cities = sc.textFile("hdfs:///cities");
-cities.count();
+val t1 = sc.textFile("hdfs:///teste");
+t1.count();
 exit;
 ```
 
 **Spark (yarn) :**
 ```
 spark-shell --master yarn
-val cities = sc.textFile("hdfs:///cities");
-cities.count();
+val t1 = sc.textFile("hdfs:///teste");
+t1.count();
 exit;
 ```
 

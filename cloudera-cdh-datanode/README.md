@@ -5,8 +5,8 @@ Image with Cloudera CDH 7
 This container running HDFS Datanode and Yarn Node Manager.
 
 Depends:
- - Namenode (academysemantix/cdh-namenode)
- - Resource Manager (academysemantix/cdh-yarnmaster)
+ - Namenode (https://hub.docker.com/r/academysemantix/cdh-namenode)
+ - Resource Manager (https://hub.docker.com/r/academysemantix/cdh-yarnmaster)
 
 Services start with supervisor:
  - Datanode
