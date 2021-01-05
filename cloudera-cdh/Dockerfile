@@ -1,9 +1,13 @@
 #############################################################################################
-# Base container of Cloudera CDH 6, so don't use it directly.
-# - academysemantix/cdh-namenode : HDFS namenode and a secondarynamenode
-# - academysemantix/cdh-yarnmaster : Yarn ResourceManager 
-#	and a MapReduce HistoryServer
-# - academysemantix/cdh-datanode : HDFS datanode and a Yarn NodeManager
+# This dockerfile is derived from loicmathieu/cloudera-cdh and matthewcmead/docker-cdh
+#
+# Base image with Cloudera CDH 7, porpose to make specific CDH containers.
+# This container setup a Yarn ResourceManager and a HDFS  MaprReduce 2 HistoryServer.
+#
+# Cluster architecture:
+# - academysemantix/cdh-namenode: HDFS Namenode and the HDFS Secondary Node
+# - academysemantix/cdh-datanode: HDFS Datanode and the Node Manager
+# - academysemantix/cdh-yarnmaster: Resource Manager and the History Server
 # - academysemantix/cdh-edgenode : Client container to HDFS/Yarn cluster
 ############################################################################################
 FROM academysemantix/java
