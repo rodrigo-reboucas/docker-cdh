@@ -1,5 +1,5 @@
 #############################################################################################
-# This dockerfile is derived from loicmathieu/cloudera-cdh and matthewcmead/docker-cdh
+# This dockerfile is derived from loicmathieu/cloudera-cdh
 #
 # Image with Cloudera CDH 7
 # This container running HDFS Datanode and Yarn Node Manager.
@@ -22,9 +22,6 @@ COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 #expose port
 EXPOSE 9867 9864 9866 8042
-
-#chown hdfs the datanode data
-RUN chown -R hdfs:hadoop /hdfs
 
 #define HDFS volume to enable to persist datanode data (hdfs files) between restart
 VOLUME /hdfs

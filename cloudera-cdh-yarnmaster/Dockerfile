@@ -1,5 +1,5 @@
 #############################################################################################
-# This dockerfile is derived from loicmathieu/cloudera-cdh and matthewcmead/docker-cdh
+# This dockerfile is derived from loicmathieu/cloudera-cdh
 #
 # Image with Cloudera CDH 7
 # This container running Resource Manager and History Server

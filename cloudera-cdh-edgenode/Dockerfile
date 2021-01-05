@@ -1,6 +1,5 @@
 #############################################################################################
-# This dockerfile is derived from loicmathieu/cloudera-cdh and matthewcmead/docker-cdh
-#
+# This dockerfile is derived from loicmathieu/cloudera-cdh
 # Image with Cloudera CDH 7
 # This container is a client Hadoop for HDFS and Yarn/Mapreduce.
 # This container aims to be the edge node so the entry point to send files, launch scripts and jobs, etc. to the cluster.
@@ -27,9 +26,5 @@ RUN /usr/lib/hive/bin/schematool -dbType derby -initSchema
 RUN mkdir /staging
 
 VOLUME /staging
-
-#create directory for a user
-USER user
-WORKDIR /home/user
 
 CMD ["bash"]

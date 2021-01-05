@@ -1,5 +1,5 @@
 #############################################################################################
-# This dockerfile is derived from loicmathieu/cloudera-cdh and matthewcmead/docker-cdh
+# This dockerfile is derived from loicmathieu/cloudera-cdh
 #
 # Image with Cloudera CDH 7
 # This container running HDFS Namenode and HDFS Secondary Node
@@ -28,9 +28,6 @@ COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 #expose namenode port
 EXPOSE 8020 9870
-
-#chown hdfs the namenode data
-RUN chown -R hdfs:hadoop /hdfs
 
 #define HDFS volume to enable to persist namenode fsimage between restart
 VOLUME /hdfs
