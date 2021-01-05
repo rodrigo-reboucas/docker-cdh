@@ -1,5 +1,5 @@
 #############################################################################################
-# This dockerfile is derived from loicmathieu/cloudera-cdh and matthewcmead/docker-cdh
+# This dockerfile is derived from loicmathieu/cloudera-cdh
 #
 # Base image with Cloudera CDH 7, porpose to make specific CDH containers.
 # This container setup a Yarn ResourceManager and a HDFS  MaprReduce 2 HistoryServer.
