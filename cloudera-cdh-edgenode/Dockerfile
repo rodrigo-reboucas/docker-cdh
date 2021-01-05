@@ -1,9 +1,17 @@
-#########################################################################################
-# This dockerfile is derived from loicmathieu/cloudera-cdh and will setup an edge node to
-# works with the other cloudera containers.
-# It also contains some pig/hive script and CSV test files to start with
+#############################################################################################
+# This dockerfile is derived from loicmathieu/cloudera-cdh and matthewcmead/docker-cdh
 #
-#########################################################################################
+# Image with Cloudera CDH 7
+# This container is a client Hadoop for HDFS and Yarn/Mapreduce.
+# This container aims to be the edge node so the entry point to send files, launch scripts and jobs, etc. to the cluster.
+# This container contains the following Hadoop client: hdfs, yarn, mapreduce v2, hive, spark, sqoop.Image with Cloudera CDH 7
+#
+# Cluster architecture:
+# - academysemantix/cdh-namenode: HDFS Namenode and the HDFS Secondary Node
+# - academysemantix/cdh-datanode: HDFS Datanode and the Node Manager
+# - academysemantix/cdh-yarnmaster: Resource Manager and the History Server
+# - academysemantix/cdh-edgenode : Client container to HDFS/Yarn cluster
+#############################################################################################
 FROM academysemantix/cdh-base
 
 LABEL MAINTAINER Rodrigo Rebouças <rodrigo.a.reboucas@gmail.com>
@@ -19,5 +27,9 @@ RUN /usr/lib/hive/bin/schematool -dbType derby -initSchema
 RUN mkdir /staging
 
 VOLUME /staging
+
+#create directory for a user
+USER user
+WORKDIR /home/user
 
 CMD ["bash"]

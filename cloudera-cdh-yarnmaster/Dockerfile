@@ -1,12 +1,15 @@
-#######################################################################################################################
-# This dockerfile is derived from loicmathieu/cloudera-cdh and will setup a  Yarn ressource manager and an MapReducev2 HistoryServer
+#############################################################################################
+# This dockerfile is derived from loicmathieu/cloudera-cdh and matthewcmead/docker-cdh
 #
-# The ressource manager will expose it's 8032 port, to use it, you first need to start a datanode 
-# (using loicmathieu/cloudera-hdfs-datanode) and make sure the netword stack is OK so that the ressource manager and datanode 
-# can communicate together
+# Image with Cloudera CDH 7
+# This container running Resource Manager and History Server
 #
-# The container will use supervisor to start both components.
-#######################################################################################################################
+# Cluster architecture:
+# - academysemantix/cdh-namenode: HDFS Namenode and the HDFS Secondary Node
+# - academysemantix/cdh-datanode: HDFS Datanode and the Node Manager
+# - academysemantix/cdh-yarnmaster: Resource Manager and the History Server
+# - academysemantix/cdh-edgenode : Client container to HDFS/Yarn cluster
+#############################################################################################
 FROM academysemantix/cdh-base
 
 LABEL MAINTAINER Rodrigo Rebouças <rodrigo.a.reboucas@gmail.com>
