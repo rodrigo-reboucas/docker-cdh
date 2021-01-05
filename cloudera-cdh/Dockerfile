@@ -9,7 +9,7 @@
 # - academysemantix/cdh-datanode: HDFS Datanode and the Node Manager
 # - academysemantix/cdh-yarnmaster: Resource Manager and the History Server
 # - academysemantix/cdh-edgenode : Client container to HDFS/Yarn cluster
-############################################################################################
+#############################################################################################
 FROM academysemantix/java
 
 LABEL MAINTAINER Rodrigo Rebouças <rodrigo.a.reboucas@gmail.com>
